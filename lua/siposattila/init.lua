@@ -1,0 +1,5 @@
+require("siposattila.config")
+require("siposattila.remap")
+require("siposattila.packer")
+require("siposattila.tokyonight")
+require("siposattila.lsp")
