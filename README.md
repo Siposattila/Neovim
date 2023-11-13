@@ -43,6 +43,12 @@ vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 vim.keymap.set("n", "cim", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 vim.keymap.set("n", "gtd", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==")
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==")
+vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi")
+vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi")
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv")
 
 -- telescope.lua
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
