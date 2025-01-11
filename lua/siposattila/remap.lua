@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>p", vim.cmd.PackerSync)
 vim.keymap.set("n", "<leader>cm", vim.cmd.Mason)
-vim.keymap.set("n", "<leader>gg", vim.cmd.LazyGit)
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 vim.keymap.set("i", "<C-s>", vim.cmd.w, { noremap = true })

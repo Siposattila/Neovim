@@ -4,11 +4,7 @@
 [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)<br>
 [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)<br>
 [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)<br>
-[kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)<br>
 [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-
-# Lazygit
-```sudo install lazygit /usr/local/bin```
 
 # RipGrep
 You need this! Beleive me! This tool is the ultimate searching tool. You need it.
@@ -26,7 +22,6 @@ The leader key is `space`.
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>p", vim.cmd.PackerSync)
 vim.keymap.set("n", "<leader>cm", vim.cmd.Mason)
-vim.keymap.set("n", "<leader>gg", vim.cmd.LazyGit)
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 vim.keymap.set("i", "<C-s>", vim.cmd.w, { noremap = true })

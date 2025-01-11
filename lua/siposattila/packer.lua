@@ -4,9 +4,9 @@ local execute = vim.api.nvim_command
 local fn = vim.fn
 
 -- ensure that packer is installed
-local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute("!git clone https://github.com/wbthomason/packer.nvim "..install_path)
+    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
 
 -- Only required if you have packer configured as `opt`
@@ -19,7 +19,7 @@ return require("packer").startup(function(use)
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.4",
         -- or branch = '0.1.x',
-        requires = { {"nvim-lua/plenary.nvim"} }
+        requires = { { "nvim-lua/plenary.nvim" } }
     }
 
     use "folke/tokyonight.nvim"
@@ -31,26 +31,17 @@ return require("packer").startup(function(use)
         branch = "v3.x",
         requires = {
             --- Uncomment these if you want to manage LSP servers from neovim
-            {"williamboman/mason.nvim"},
-            {"williamboman/mason-lspconfig.nvim"},
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
 
             -- LSP Support
-            {"neovim/nvim-lspconfig"},
+            { "neovim/nvim-lspconfig" },
             -- Autocompletion
-            {"hrsh7th/nvim-cmp"},
-            {"hrsh7th/cmp-nvim-lsp"},
-            {"L3MON4D3/LuaSnip"},
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "L3MON4D3/LuaSnip" },
         }
     }
 
-    use({
-        "kdheepak/lazygit.nvim",
-        -- optional for floating window border decoration
-        requires = {
-            "nvim-lua/plenary.nvim",
-        },
-    })
-
     use "lewis6991/gitsigns.nvim"
-
 end)
