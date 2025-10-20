@@ -17,8 +17,8 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     ensure_installed = {
         "gopls",
-        "rust-analyzer",
-        "harper-ls",
+        "rust_analyzer",
+        "harper_ls",
         "pyright"
     },
     handlers = {
