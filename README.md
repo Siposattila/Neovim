@@ -5,7 +5,8 @@
 [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)<br>
 [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)<br>
 [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)<br>
-[kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)
+[kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)<br>
+[folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 
 # RipGrep
 You need to have ripgrep on your system.
@@ -51,6 +52,9 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fs", builtin.treesitter, {})
+
+-- this needs todo comments to be installed :3
+vim.keymap.set("n", "<leader>ft", vim.cmd.TodoTelescope, {})
 
 -- gitsings.lua
 map.set("n", "<leader>gb", function() gs.blame_line{full=true} end)
