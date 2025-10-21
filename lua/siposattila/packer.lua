@@ -12,8 +12,7 @@ return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
     use ({
-        "nvim-telescope/telescope.nvim", tag = "0.1.8",
-        -- or branch = '0.1.x',
+        "nvim-telescope/telescope.nvim",
         requires = { "nvim-lua/plenary.nvim" }
     })
 
@@ -23,17 +22,25 @@ return require("packer").startup(function(use)
 
     use {
         "VonHeikemen/lsp-zero.nvim",
-        branch = "v3.x",
         requires = {
-            { "williamboman/mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim" },
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
 
             -- LSP Support
-            { "neovim/nvim-lspconfig" },
+            "neovim/nvim-lspconfig",
             -- Autocompletion
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "L3MON4D3/LuaSnip" },
+            "hrsh7th/nvim-cmp",
+            "hrsh7th/cmp-nvim-lsp",
+            "L3MON4D3/LuaSnip",
+        }
+    }
+
+    use {
+        "mfussenegger/nvim-dap",
+        requires = {
+            "leoluz/nvim-dap-go",
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
         }
     }
 

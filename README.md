@@ -6,7 +6,11 @@
 [VonHeikemen/lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)<br>
 [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)<br>
 [kdheepak/lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)<br>
-[folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+[folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)<br>
+[mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)<br>
+[leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)<br>
+[rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)<br>
+[theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
 
 # RipGrep
 You need to have ripgrep on your system.
@@ -77,4 +81,20 @@ cmp.setup({
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
   })
 })
+
+-- dap.lua
+vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
+vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
+
+-- Eval var under cursor
+vim.keymap.set("n", "<space>?", function()
+  require("dapui").eval(nil, { enter = true })
+end)
+
+vim.keymap.set("n", "<F1>", dap.continue)
+vim.keymap.set("n", "<F2>", dap.step_into)
+vim.keymap.set("n", "<F3>", dap.step_over)
+vim.keymap.set("n", "<F4>", dap.step_out)
+vim.keymap.set("n", "<F5>", dap.step_back)
+vim.keymap.set("n", "<F12>", dap.restart)
 ```
