@@ -10,7 +10,9 @@
 [mfussenegger/nvim-dap](https://github.com/mfussenegger/nvim-dap)<br>
 [leoluz/nvim-dap-go](https://github.com/leoluz/nvim-dap-go)<br>
 [rcarriga/nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)<br>
-[theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)
+[theHamsta/nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text)<br>
+[rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)<br>
+[nvim-mini/mini.nvim](https://github.com/nvim-mini/mini.nvim)
 
 # RipGrep
 You need to have ripgrep on your system.
@@ -30,7 +32,7 @@ vim.keymap.set("n", "<leader>gg", vim.cmd.LazyGit)
 vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete)
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 vim.keymap.set("i", "<C-s>", vim.cmd.w, { noremap = true })
-vim.keymap.set("n", "<leader>qq", vim.cmd.quit)
+vim.keymap.set("n", "<leader>qq", vim.cmd.quitall)
 vim.keymap.set("n", "cd", "<cmd>lua vim.diagnostic.open_float()<CR>")
 vim.keymap.set("n", "fd", "<cmd>Telescope diagnostics<CR>")
 vim.keymap.set("n", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
@@ -63,31 +65,10 @@ vim.keymap.set("n", "<leader>ft", vim.cmd.TodoTelescope, {})
 -- gitsings.lua
 map.set("n", "<leader>gb", function() gs.blame_line{full=true} end)
 
--- lsp.lua
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    -- `Enter` key to confirm completion
-    ["<CR>"] = cmp.mapping.confirm({select = false}),
-
-    -- Ctrl+Space to trigger completion menu
-    ["<C-Space>"] = cmp.mapping.complete(),
-
-    -- Navigate between snippet placeholder
-    ["<C-f>"] = cmp_action.luasnip_jump_forward(),
-    ["<C-b>"] = cmp_action.luasnip_jump_backward(),
-
-    -- Scroll up and down in the completion documentation
-    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-  })
-})
-
 -- dap.lua
-vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
-vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
+vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
 
--- Eval var under cursor
-vim.keymap.set("n", "<space>?", function()
+vim.keymap.set("n", "<leader>?", function()
   require("dapui").eval(nil, { enter = true })
 end)
 
@@ -97,4 +78,18 @@ vim.keymap.set("n", "<F3>", dap.step_over)
 vim.keymap.set("n", "<F4>", dap.step_out)
 vim.keymap.set("n", "<F5>", dap.step_back)
 vim.keymap.set("n", "<F12>", dap.restart)
+vim.keymap.set("n", "<C-b>", ui.toggle)
+
+-- mini.surround
+mappings = {
+    add = 'sa', -- Add surrounding in Normal and Visual modes
+    delete = 'sd', -- Delete surrounding
+    find = 'sf', -- Find surrounding (to the right)
+    find_left = 'sF', -- Find surrounding (to the left)
+    highlight = 'sh', -- Highlight surrounding
+    replace = 'sr', -- Replace surrounding
+
+    suffix_last = 'l', -- Suffix to search with "prev" method
+    suffix_next = 'n', -- Suffix to search with "next" method
+}
 ```
