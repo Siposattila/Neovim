@@ -3,8 +3,33 @@ return function()
     local ui = require("dapui")
 
     ui.setup()
-    require("dap-go").setup()
     require("nvim-dap-virtual-text").setup()
+
+    -- Go debugging setup with dlv
+    require("dap-go").setup()
+
+    dap.adapters.lldb = {
+        type = "executable",
+        command = "/usr/bin/lldb-dap",
+        name = "lldb"
+    }
+
+    dap.configurations.rust = {
+        {
+            name = "Debug Rust (config)",
+            type = "lldb",
+            request = "launch",
+            program = function()
+                print("🔧 Building project...")
+                vim.fn.system("cargo build")
+                print("🚀 Build is ready!")
+
+                return vim.fn.getcwd() .. "/target/debug/" .. vim.fn.getcwd():match("([^/]+)$")
+            end,
+            cwd = "${workspaceFolder}",
+            stopOnEntry = false,
+        },
+    }
 
     vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
     -- vim.keymap.set("n", "", dap.run_to_cursor)
