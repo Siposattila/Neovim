@@ -24,6 +24,20 @@ require("mason-lspconfig").setup({
     },
 })
 
+vim.lsp.config("rust_analyzer", {
+    on_attach = lsp_zero.on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+            check = {
+                command = "clippy",
+            },
+        },
+    },
+})
+
 require("mini.completion").setup({
     lsp_completion = {
         source_func = "omnifunc",
