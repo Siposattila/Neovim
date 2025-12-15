@@ -28,9 +28,9 @@ vim.lsp.config("rust_analyzer", {
     on_attach = lsp_zero.on_attach,
     settings = {
         ["rust-analyzer"] = {
-            cargo = {
-                allFeatures = true,
-            },
+            --cargo = {
+            --    allFeatures = true,
+            --},
             check = {
                 command = "clippy",
             },
