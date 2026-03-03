@@ -18,6 +18,7 @@ return require("packer").startup(function(use)
         requires = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
             "neovim/nvim-lspconfig",
             {
                 "nvim-mini/mini.nvim",

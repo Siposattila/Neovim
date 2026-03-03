@@ -12,13 +12,27 @@ lsp_zero.set_sign_icons({
 })
 
 require("mason").setup({})
-require("mason-lspconfig").setup({
+require("mason-tool-installer").setup({
     ensure_installed = {
+        -- LSP
         "gopls",
         "rust_analyzer",
         "harper_ls",
-        "pyright"
+        "pyright",
+        "jsonls",
+        "vtsls",
+        "vue_ls",
+
+        -- Linter
+        "ruff",
+
+        -- Formatter
+        "black",
     },
+    auto_update = false,
+    run_on_start = true,
+})
+require("mason-lspconfig").setup({
     handlers = {
         lsp_zero.default_setup,
     },
@@ -28,13 +42,57 @@ vim.lsp.config("rust_analyzer", {
     on_attach = lsp_zero.on_attach,
     settings = {
         ["rust-analyzer"] = {
-            --cargo = {
-            --    allFeatures = true,
-            --},
             check = {
                 command = "clippy",
             },
         },
+    },
+})
+
+local mason_path = vim.fn.stdpath("data") .. "/mason/packages"
+local vue_ls_path = mason_path .. "/vue-language-server/node_modules/@vue/language-server"
+local vue_ts_plugin = vue_ls_path .. "/node_modules/@vue/typescript-plugin"
+
+vim.lsp.config("vtsls", {
+    filetypes = {
+        "vue",
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx"
+    },
+    root_markers = {
+        "tsconfig.json",
+        "package.json",
+        "jsconfig.json",
+        ".git"
+    },
+    settings = {
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        tsserver = {
+          globalPlugins = {
+            {
+                name = "@vue/typescript-plugin",
+                location = vue_ts_plugin,
+                languages = { "vue" },
+                configNamespace = "typescript",
+                enableForWorkspaceTypeScriptVersions = true,
+            }
+          }
+        }
+      },
+      typescript = {
+          preferences = {
+              importModuleSpecifier = "non-relative",
+              updateImportsOnFileMove = { enabled = "always" },
+              suggest = {
+                  completeFunctionCalls = true,
+              },
+          },
+      },
     },
 })
 
