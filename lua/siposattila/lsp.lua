@@ -22,6 +22,7 @@ require("mason-tool-installer").setup({
         "jsonls",
         "vtsls",
         "vue_ls",
+        "omnisharp",
 
         -- Linter
         "ruff",
