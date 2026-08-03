@@ -1,4 +1,4 @@
-require("nvim-treesitter.configs").setup {
+require("nvim-treesitter.config").setup {
     ensure_installed = { "lua", "vim", "python", "go", "rust" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
