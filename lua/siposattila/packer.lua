@@ -12,7 +12,7 @@ return require("packer").startup(function(use)
     use ("wbthomason/packer.nvim")
     use ({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }})
     use ("folke/tokyonight.nvim")
-    use ("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+    use ({"nvim-treesitter/nvim-treesitter", branch = "master", run = ":TSUpdate"})
     use ({
         "VonHeikemen/lsp-zero.nvim",
         requires = {
