@@ -1,5 +1,5 @@
 -- Using Escape to exit Terminal mode
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = false })
+vim.api.nvim_set_keymap("t", "<C-n>", "<C-\\><C-n>", { noremap = true, silent = false })
 
 -- local job_id = nil
 

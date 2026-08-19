@@ -36,7 +36,7 @@ return function()
 
     -- Eval var under cursor
     vim.keymap.set("n", "<leader>?", function()
-      require("dapui").eval(nil, { enter = true })
+        require("dapui").eval(nil, { enter = true })
     end)
 
     vim.keymap.set("n", "<F1>", dap.continue)

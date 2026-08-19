@@ -71,29 +71,29 @@ vim.lsp.config("vtsls", {
         ".git"
     },
     settings = {
-      vtsls = {
-        enableMoveToFileCodeAction = true,
-        tsserver = {
-          globalPlugins = {
-            {
-                name = "@vue/typescript-plugin",
-                location = vue_ts_plugin,
-                languages = { "vue" },
-                configNamespace = "typescript",
-                enableForWorkspaceTypeScriptVersions = true,
+        vtsls = {
+            enableMoveToFileCodeAction = true,
+            tsserver = {
+                globalPlugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = vue_ts_plugin,
+                        languages = { "vue" },
+                        configNamespace = "typescript",
+                        enableForWorkspaceTypeScriptVersions = true,
+                    }
+                }
             }
-          }
-        }
-      },
-      typescript = {
-          preferences = {
-              importModuleSpecifier = "non-relative",
-              updateImportsOnFileMove = { enabled = "always" },
-              suggest = {
-                  completeFunctionCalls = true,
-              },
-          },
-      },
+        },
+        typescript = {
+            preferences = {
+                importModuleSpecifier = "non-relative",
+                updateImportsOnFileMove = { enabled = "always" },
+                suggest = {
+                    completeFunctionCalls = true,
+                },
+            },
+        },
     },
 })
 

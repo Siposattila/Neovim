@@ -9,11 +9,18 @@ end
 execute "packadd packer.nvim"
 
 return require("packer").startup(function(use)
-    use ("wbthomason/packer.nvim")
-    use ({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }})
-    use ("folke/tokyonight.nvim")
-    use ({"nvim-treesitter/nvim-treesitter", branch = "master", run = ":TSUpdate"})
-    use ({
+    use("wbthomason/packer.nvim")
+    use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+    use("folke/tokyonight.nvim")
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
+        build = ":TSUpdate",
+        config = require(
+            "siposattila.treesitter")
+    })
+    use({
         "VonHeikemen/lsp-zero.nvim",
         requires = {
             "williamboman/mason.nvim",
@@ -28,7 +35,7 @@ return require("packer").startup(function(use)
         }
     })
 
-    use ({
+    use({
         "mfussenegger/nvim-dap",
         requires = {
             "leoluz/nvim-dap-go",
@@ -52,4 +59,11 @@ return require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
         config = require("siposattila.todo-comments")
     })
+
+    -- Claude :c
+    use {
+        "greggh/claude-code.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+        config = require("siposattila.claude")
+    }
 end)
