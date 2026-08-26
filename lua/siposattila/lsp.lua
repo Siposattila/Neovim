@@ -18,7 +18,7 @@ require("mason-tool-installer").setup({
         "gopls",
         "rust_analyzer",
         "harper_ls",
-        "pyright",
+        "ty",
         "jsonls",
         "vtsls",
         "vue_ls",
