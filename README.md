@@ -52,6 +52,22 @@ vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi")
 vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv")
 vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv")
 
+-- claude
+vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
+vim.keymap.set("n", "<leader>ccr", "<cmd>ClaudeCodeResume<CR>", { desc = "Claude Code conversation picker" })
+
+-- cline
+vim.keymap.set("n", "<leader>co", "<cmd>Cline<CR>", { desc = "Open Cline" })
+vim.keymap.set("n", "<leader>coh", "<cmd>ClineHistory<CR>", { desc = "Open cline conversation picker" })
+
+-- Cline CLI open history
+vim.keymap.set("n", "<leader>coh", function()
+    vim.cmd.vnew()
+    vim.cmd.term(CLINE_COMMAND .. " history")
+    vim.cmd.wincmd(TERMINAL_PLACE)
+    vim.api.nvim_win_set_height(0, TERMINAL_HEIGHT)
+end)
+
 -- telescope.lua
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
