@@ -59,11 +59,4 @@ return require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
         config = require("siposattila.todo-comments")
     })
-
-    -- Claude :c
-    use {
-        "greggh/claude-code.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-        config = require("siposattila.claude")
-    }
 end)
